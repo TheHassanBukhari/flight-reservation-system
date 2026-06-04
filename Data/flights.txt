@@ -1,0 +1,12 @@
+PK101,Karachi,Islamabad,15999.99
+PK202,Lahore,Karachi,12999.50
+PK303,Islamabad,Lahore,9999.99
+PK404,Karachi,Quetta,11999.00
+PK505,Islamabad,Peshawar,8999.75
+PK606,Lahore,Multan,6999.99
+PK707,Karachi,Skardu,24999.00
+PK808,Islamabad,Gilgit,18999.50
+PK909,Peshawar,Quetta,14999.00
+PK010,Multan,Karachi,10999.99
+PK111,Faisalabad,Islamabad,7999.00
+PK212,Quetta,Lahore,13999.50

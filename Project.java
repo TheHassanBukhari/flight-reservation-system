@@ -16,6 +16,11 @@ public class Project {
 
     static Scanner scanner = new Scanner(System.in);
 
+    // Platform-independent file paths
+    static final String DATA_DIR = "Data" + File.separator;
+    static final String FLIGHTS_FILE = DATA_DIR + "flights.txt";
+    static final String BOOKINGS_FILE = DATA_DIR + "bookings.txt";
+
     public static void main(String[] args) {
         loadFlights();
         loadBookings();
@@ -24,12 +29,13 @@ public class Project {
 
     static void loadFlights() {
         try {
-            File file = new File("Data\\flights.txt");
+            File file = new File(FLIGHTS_FILE);
             // Create directory if it doesn't exist
-            file.getParentFile().mkdirs();
+            File dataDir = new File(DATA_DIR);
+            dataDir.mkdirs();
             
             if (!file.exists()) {
-                System.out.println("Data\\flights.txt not found. No flights loaded.");
+                System.out.println(FLIGHTS_FILE + " not found. No flights loaded.");
                 return;
             }
             
@@ -56,7 +62,7 @@ public class Project {
             }
             fileScanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Data\\flights.txt not found. No flights loaded.");
+            System.out.println(FLIGHTS_FILE + " not found. No flights loaded.");
         } catch (NumberFormatException e) {
             System.out.println("Error parsing price in flights file.");
         }
@@ -64,12 +70,13 @@ public class Project {
 
     static void loadBookings() {
         try {
-            File file = new File("Data\\bookings.txt");
+            File file = new File(BOOKINGS_FILE);
             // Create directory if it doesn't exist
-            file.getParentFile().mkdirs();
+            File dataDir = new File(DATA_DIR);
+            dataDir.mkdirs();
             
             if (!file.exists()) {
-                System.out.println("Data\\bookings.txt not found. No bookings loaded.");
+                System.out.println(BOOKINGS_FILE + " not found. No bookings loaded.");
                 return;
             }
             
@@ -102,7 +109,7 @@ public class Project {
             }
             fileScanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Data\\bookings.txt not found. No bookings loaded.");
+            System.out.println(BOOKINGS_FILE + " not found. No bookings loaded.");
         } catch (NumberFormatException e) {
             System.out.println("Error parsing seat number in bookings file.");
         }
@@ -235,7 +242,9 @@ public class Project {
         seats[index][row][col] = 'X'; 
 
         try {
-            FileWriter writer = new FileWriter("Data\\bookings.txt", true);
+            // Ensure directory exists
+            new File(DATA_DIR).mkdirs();
+            FileWriter writer = new FileWriter(BOOKINGS_FILE, true);
             writer.write(flightID + "," + name + "," + seat + "\n");
             writer.close();
         } catch (IOException e) {
@@ -243,8 +252,10 @@ public class Project {
             return;
         }
 
-        String ticketFileName = "Data\\ticket_" + flightID + "_" + seat + ".txt";
+        String ticketFileName = DATA_DIR + "ticket_" + flightID + "_" + seat + ".txt";
         try {
+            // Ensure directory exists
+            new File(DATA_DIR).mkdirs();
             PrintWriter ticket = new PrintWriter(ticketFileName);
             ticket.println("||| FLIGHT TICKET DETAILS |||");
             ticket.println("Name: " + name);
@@ -311,8 +322,8 @@ public class Project {
         seats[index][row][col] = 'O';
 
         try {
-            File file = new File("Data\\bookings.txt");
-            File tempFile = new File("Data\\temp_bookings.txt");
+            File file = new File(BOOKINGS_FILE);
+            File tempFile = new File(DATA_DIR + "temp_bookings.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
             PrintWriter writer = new PrintWriter(new FileWriter(tempFile));
             String line;
@@ -361,7 +372,7 @@ public class Project {
         }
 
         while (true) {
-            System.out.println("\n=== Admin Menu ===");
+            System.out.println("\n  Admin Menu ");
             System.out.println("1. Add flight");
             System.out.println("2. Remove flight");
             System.out.println("3. Back to main menu");
@@ -440,9 +451,9 @@ public class Project {
 
         try {
             // Create directory if it doesn't exist
-            new File("Data").mkdirs();
+            new File(DATA_DIR).mkdirs();
             
-            PrintWriter writer = new PrintWriter(new FileWriter("Data\\flights.txt", true));
+            PrintWriter writer = new PrintWriter(new FileWriter(FLIGHTS_FILE, true));
             writer.println(flightID + "," + src + "," + dst + "," + price);
             writer.close();
             flightCount++;
@@ -486,8 +497,8 @@ public class Project {
 
         try {
             // Update flights.txt
-            File file = new File("Data\\flights.txt");
-            File tempFile = new File("Data\\temp_flights.txt");
+            File file = new File(FLIGHTS_FILE);
+            File tempFile = new File(DATA_DIR + "temp_flights.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
             PrintWriter writer = new PrintWriter(new FileWriter(tempFile));
             String line;
@@ -511,9 +522,9 @@ public class Project {
             }
 
             // Update bookings.txt
-            File bfile = new File("Data\\bookings.txt");
+            File bfile = new File(BOOKINGS_FILE);
             if (bfile.exists()) {
-                File tempB = new File("Data\\temp_bookings.txt");
+                File tempB = new File(DATA_DIR + "temp_bookings.txt");
                 BufferedReader bReader = new BufferedReader(new FileReader(bfile));
                 PrintWriter bWriter = new PrintWriter(new FileWriter(tempB));
                 while ((line = bReader.readLine()) != null) {

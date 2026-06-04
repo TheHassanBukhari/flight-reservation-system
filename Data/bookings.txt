@@ -1,0 +1,15 @@
+PK101,Ahmed Raza,A1
+PK202,Fatima Khan,B3
+PK101,Bilal Ahmed,C2
+PK303,Ayesha Malik,D4
+PK404,Usman Chaudhry,A3
+PK505,Hina Tariq,B1
+PK606,Shahid Iqbal,C4
+PK707,Sadia Mirza,D2
+PK808,Imran Ali,A4
+PK909,Nadia Hassan,B2
+PK111,Hassan Raza,C1
+PK212,Maria Sheikh,D3
+PK101,Omar Farooq,B4
+PK202,Zainab Abbas,C3
+PK303,Salman Ahmed,A2
