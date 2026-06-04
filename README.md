@@ -20,7 +20,7 @@ This repository contains my **first semester Java project**: a **Flight Reservat
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/TheHassanBukhari/FLIGHT-RESERVATION-SYSTEM-1st-Semester-Java-Project-.git
+git clone https://github.com/TheHassanBukhari/flight-reservation-system.git
 ```
 
 2. **Compile all Java files:**
