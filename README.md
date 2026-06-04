@@ -58,8 +58,8 @@ java Project
 
 ## Additional Resources
 
-For a **detailed explanation of the code, design, and implementation**, visit my blog post:
-[Full Blog Post Explanation](https://hassan-codes.blogspot.com/2025/08/0.html)
+For a **detailed explanation of the code, design, and implementation**, visit my documentation:
+[Full Project Explanation](https://thehassanbukhari.github.io/flight-reservation-system/)
 
 ---
 
